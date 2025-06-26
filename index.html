@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>INTELLECTUALS - Discord Server</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="logo.png" sizes="32x32" type="image/png" />
+    <style>
+        /* General Styling */
+        :root {
+            --primary-font: 'Montserrat', sans-serif;
+            --secondary-font: 'Open Sans', sans-serif;
+            --transition-speed: 0.3s ease-in-out;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--secondary-font);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--primary-font);
+            color: var(--heading-color);
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+            transition: color var(--transition-speed);
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        a:hover {
+            color: var(--link-hover-color);
+        }
+
+        /* Header and Navigation */
+        header {
+            background-color: var(--nav-background);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all var(--transition-speed);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .logo {
+            font-family: var(--primary-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--logo-color);
+            transition: color var(--transition-speed);
+            z-index: 1001;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            font-family: var(--primary-font);
+            font-weight: 600;
+            color: var(--nav-link-color);
+            font-size: 1.1rem;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--link-hover-color);
+            transition: width var(--transition-speed);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1001;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--nav-link-color);
+            font-size: 1.8rem;
+            cursor: pointer;
+            padding: 5px;
+            margin-left: 15px;
+            z-index: 1001;
+        }
+
+        /* Animated Toggle Buttons */
+        .icon-toggle-button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 50px;
+            background-color: var(--input-background);
+            color: var(--text-color);
+            font-family: var(--secondary-font);
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 50px;
+            min-height: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed);
+        }
+
+        .icon-toggle-button i {
+            transition: transform 0.3s ease-in-out, color var(--transition-speed);
+        }
+
+        .icon-toggle-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .icon-toggle-button.active i {
+            transform: rotate(360deg);
+        }
+
+        /* Language Switcher */
+        #language-switcher {
+            min-width: 80px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        #language-switcher i {
+            display: none;
+        }
+        #language-switcher span {
+            transition: color var(--transition-speed);
+        }
+
+        /* Main Content Sections */
+        main {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+        }
+
+        section {
+            padding: 60px 0;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            background-color: var(--card-background);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-speed);
+            text-align: center;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--card-background-alt);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1600x600/5E212F/FFFFFF?text=Welcome+to+Discord+Server');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .hero-section p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        .join-button {
+            display: inline-block;
+            background-color: #7289DA;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all var(--transition-speed);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-height: 48px;
+        }
+
+        .join-button:hover {
+            background-color: #677BC4;
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        /* Schedule Section */
+        .schedule-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .day-card {
+            background-color: var(--section-background);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed);
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .day-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+        }
+
+        .day-card ul {
+            list-style: none;
+            padding: 0;
+            flex-grow: 1;
+            margin-bottom: 20px;
+        }
+
+        .day-card ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: baseline;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .day-card ul li .time {
+            font-weight: 600;
+            color: var(--accent-color);
+            flex-shrink: 0;
+            margin-right: 10px;
+            min-width: 65px;
+        }
+        .day-card ul li .event-description {
+            flex-grow: 1;
+            word-break: break-word;
+        }
+
+        /* Channel Link Button */
+        .channel-link {
+            font-size: 1em;
+            padding: 12px 20px;
+            border-radius: 5px;
+            background-color: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            flex-shrink: 0;
+            margin-top: auto;
+            align-self: center;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            min-height: 48px;
+        }
+
+        .channel-link:hover {
+            background-color: var(--link-hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .channel-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 40px 60px;
+            background-color: var(--card-background-alt);
+            text-align: left;
+        }
+        .about-section h2, .about-section h3 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .about-section ul, .about-section ol {
+            margin: 20px auto;
+            max-width: 800px;
+            padding-left: 25px;
+            list-style-position: inside;
+        }
+        .about-section li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            padding-left: 5px;
+        }
+        .about-section p {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+        }
+
+        /* Games Section */
+        .games-section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .games-section p {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .game-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .game-card {
+            background-color: var(--section-background);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all var(--transition-speed);
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .game-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--accent-color);
+        }
+
+        .game-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+
+        .game-card p {
+            font-size: 0.95rem;
+            color: var(--text-color-alt);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 40px 60px;
+            background-color: var(--card-background-alt);
+        }
+        .contact-section h2 {
+            margin-bottom: 25px;
+            font-size: 2.5rem;
+        }
+        .contact-section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        .contact-section iframe {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-background);
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            transition: all var(--transition-speed);
+        }
+
+        /* Animations */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--nav-background);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hero-section {
+                padding: 80px 20px;
+            }
+            
+            .about-section, .contact-section {
+                padding: 30px 20px;
+            }
+            
+            .about-section ul, .about-section ol {
+                padding-left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .schedule-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .day-card {
+                padding: 20px;
+            }
+            
+            .game-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .contact-section iframe {
+                width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .hero-section {
+                padding: 60px 15px;
+            }
+            
+            .hero-section h1 {
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-section p {
+                font-size: 1rem;
+            }
+            
+            .join-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .icon-toggle-button {
+                min-width: 45px;
+                min-height: 45px;
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+            
+            .about-section li {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .game-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .contact-section {
+                padding: 30px 15px;
+            }
+        }
+    </style>
+
+    <style id="theme-style-dark">
+        /* Dark Theme Variables (Primary) */
+        body {
+            --background-color: #1a1a2e;
+            --text-color: #e0e0e0;
+            --text-color-alt: #b0b0b0;
+            --heading-color: #ffffff;
+            --link-color: #8be9fd;
+            --link-hover-color: #6272a4;
+
+            --nav-background: #161623;
+            --logo-color: #ffffff;
+            --nav-link-color: #b0b0b0;
+
+            --card-background: #20203a;
+            --card-background-alt: #252540;
+            --section-background: #2c2c4a;
+
+            --accent-color: #bd93f9;
+            --border-color: #3f3f5a;
+            --input-background: #252540;
+
+            --button-background: #6272a4;
+            --button-text-color: #ffffff;
+            --button-hover-background: #7a8ec9;
+
+            --footer-background: #161623;
+            --footer-text-color: #a0a0a0;
+        }
+    </style>
+
+    <style id="theme-style-light" disabled>
+        /* Light Theme Variables */
+        body {
+            --background-color: #f0f2f5;
+            --text-color: #333333;
+            --text-color-alt: #555555;
+            --heading-color: #2c3e50;
+            --link-color: #3498db;
+            --link-hover-color: #2980b9;
+
+            --nav-background: #ffffff;
+            --logo-color: #2c3e50;
+            --nav-link-color: #555555;
+
+            --card-background: #ffffff;
+            --card-background-alt: #e9ecef;
+            --section-background: #fdfdfd;
+
+            --accent-color: #e74c3c;
+            --border-color: #cccccc;
+            --input-background: #ffffff;
+
+            --button-background: #3498db;
+            --button-text-color: #ffffff;
+            --button-hover-background: #2980b9;
+
+            --footer-background: #e9ecef;
+            --footer-text-color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">INTELLECTUALS</div>
+            <ul>
+                <li><a href="#home" data-lang-key="nav_home">Головна</a></li>
+                <li><a href="#schedule" data-lang-key="nav_schedule">Розклад</a></li>
+                <li><a href="#about" data-lang-key="nav_about">Про нас</a></li>
+                <li><a href="#games" data-lang-key="nav_games">Ігри</a></li>
+                <li><a href="#contact" data-lang-key="nav_contact">Контакти</a></li>
+            </ul>
+            <div class="controls">
+                <button id="language-switcher" class="icon-toggle-button" aria-label="Змінити мову">
+                    <span id="language-text">UK</span>
+                </button>
+                <button id="theme-switcher" class="icon-toggle-button" aria-label="Змінити тему">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 data-lang-key="home_h1">Ласкаво просимо на наш Discord Сервер!</h1>
+                <p data-lang-key="home_p">Місце, де зустрічаються спілкування, веселощі та захопливі ігри.</p>
+                <a href="https://discord.gg/JTBMrjEVy8" target="_blank" class="join-button" data-lang-key="join_button">Приєднатися до Discord</a>
+            </div>
+        </section>
+
+        <section id="schedule" class="schedule-section">
+            <h2 data-lang-key="schedule_h2">Розклад Бесід та Ігор</h2>
+            <div class="schedule-grid">
+                <div class="day-card">
+                    <h3 data-lang-key="day_monday">Понеділок</h3>
+                    <ul>
+                        <li><span class="time">18:00</span> - <span class="event-description" data-lang-key="mon_chat">Загальний Чат</span></li>
+                        <li><span class="time">20:00</span> - <span class="event-description" data-lang-key="mon_game">Вечір ігор: Valorant</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_tuesday">Вівторок</h3>
+                    <ul>
+                        <li><span class="time">19:00</span> - <span class="event-description" data-lang-key="tue_qa">Сесія Q&A з Модераторами</span></li>
+                        <li><span class="time">21:00</span> - <span class="event-description" data-lang-key="tue_lol">Командні ігри: League of Legends</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_wednesday">Середа</h3>
+                    <ul>
+                        <li><span class="time">18:30</span> - <span class="event-description" data-lang-key="wed_music">Музичний Вечір</span></li>
+                        <li><span class="time">20:30</span> - <span class="event-description" data-lang-key="wed_chill">Розслаблений Чат</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_thursday">Четвер</h3>
+                    <ul>
+                        <li><span class="time">19:00</span> - <span class="event-description" data-lang-key="thu_admin">Сесія "Поговори з Адміном"</span></li>
+                        <li><span class="time">21:00</span> - <span class="event-description" data-lang-key="thu_stream">Стрім-вечірка: Перегляд</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_friday">П'ятниця</h3>
+                    <ul>
+                        <li><span class="time">20:00</span> - <span class="event-description" data-lang-key="fri_movie">Кіновечір</span></li>
+                        <li><span class="time">22:00</span> - <span class="event-description" data-lang-key="fri_night_games">Нічні Ігри</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_saturday">Субота</h3>
+                    <ul>
+                        <li><span class="time">16:00</span> - <span class="event-description" data-lang-key="sat_day_chat">Денний Чат</span></li>
+                        <li><span class="time">19:00</span> - <span class="event-description" data-lang-key="sat_tournament">Турнір з... (гра)</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="day-card">
+                    <h3 data-lang-key="day_sunday">Неділя</h3>
+                    <ul>
+                        <li><span class="time">15:00</span> - <span class="event-description" data-lang-key="sun_calm_chat">Спокійне Спілкування</span></li>
+                        <li><span class="time">18:00</span> - <span class="event-description" data-lang-key="sun_week_discussion">Обговорення Тижня</span></li>
+                    </ul>
+                    <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 data-lang-key="about_h2">Про наш Сервер</h2>
+            <p data-lang-key="about_p">Наш Discord сервер — це динамічна спільнота, створена для тих, хто шукає однодумців для спілкування, спільних ігор та просто гарного проведення часу. Ми пишаємося дружелюбною атмосферою, де кожен знайде своє місце.</p>
+            <h3 data-lang-key="about_h3">Що ми пропонуємо:</h3>
+            <ul>
+                <li data-lang-key="about_offer_1"><b>Активне спілкування:</b> Безліч текстових та голосових каналів для будь-яких тем.</li>
+                <li data-lang-key="about_offer_2"><b>Ігрові сесії:</b> Регулярні спільні ігри в різні популярні тайтли.</li>
+                <li data-lang-key="about_offer_3"><b>Розважальні події:</b> Кіновечори, музичні сесії, вікторини та багато іншого.</li>
+                <li data-lang-key="about_offer_4"><b>Підтримка та взаємодопомога:</b> Чуйна адміністрація та модератори завжди готові допомогти.</li>
+                <li data-lang-key="about_offer_5"><b>Свобода самовираження:</b> Поважаємо думки кожного учасника.</li>
+            </ul>
+            <h3>Правила Сервера:</h3>
+            <ol>
+                <li data-lang-key="about_rule_1">Будьте ввічливими та поважними до інших учасників.</li>
+                <li data-lang-key="about_rule_2">Заборонені образи, цькування, розпалювання ненависті.</li>
+                <li data-lang-key="about_rule_3">Не надсилайте спам та рекламу без дозволу адміністрації.</li>
+                <li data-lang-key="about_rule_4">Дотримуйтесь вказівок модераторів.</li>
+                <li data-lang-key="about_rule_5">Насолоджуйтесь спілкуванням та іграми!</li>
+            </ol>
+        </section>
+
+        <section id="games" class="games-section">
+            <h2 data-lang-key="games_h2">Наші Ігрові Спільноти</h2>
+            <p data-lang-key="games_p">Ми любимо грати! Приєднуйтесь до наших каналів за улюбленими іграми:</p>
+            <div class="game-cards">
+                <div class="game-card">
+                    <img src="cs2.webp" alt="CS2">
+                    <h3 data-lang-key="game_valorant_title">CS2</h3>
+                    <p data-lang-key="game_valorant_desc">Тактичний шутер 5 на 5.</p>
+                </div>
+                <div class="game-card">
+                    <img src="dota2.png" alt="DOTA 2">
+                    <h3 data-lang-key="game_lol_title">DOTA 2</h3>
+                    <p data-lang-key="game_lol_desc">Популярна MOBA гра.</p>
+                </div>
+                <div class="game-card">
+                    <img src="minecraft.jpg" alt="Minecraft">
+                    <h3 data-lang-key="game_minecraft_title">Minecraft</h3>
+                    <p data-lang-key="game_minecraft_desc">Будуйте та досліджуйте світи.</p>
+                </div>
+                <div class="game-card">
+                    <img src="wow.png" alt="WoW">
+                    <h3 data-lang-key="game_amongus_title">World of Tanks</h3>
+                    <p data-lang-key="game_amongus_desc">Збирай, воюй, перемагай.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2 data-lang-key="contact_h2">Зв'яжіться з нами</h2>
+            <p data-lang-key="contact_p1">Якщо у вас є питання або пропозиції, ви можете зв'язатися з адміністрацією нашого Discord сервера безпосередньо.</p>
+            <p><span data-lang-key="contact_discord">Наш Discord:</span> <a href="https://discord.gg/JTBMrjEVy8" target="_blank">https://discord.gg/JTBMrjEVy8</a></p>
+            <p><span data-lang-key="contact_email">Або напишіть нам:</span> <a href="mailto:ваша_почта@example.com">ваша_почта@example.com</a></p>
+            <iframe src="https://discord.com/widget?id=1268300851177455666&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+        </section>
+    </main>
+
+    <footer>
+        <p data-lang-key="footer_text">2025 Наш Discord Сервер. Усі права захищені.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                mobileMenuBtn.innerHTML = navMenu.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
+
+            // Close menu when clicking on a link
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+
+            // Theme Switching
+            const themeSwitcher = document.getElementById('theme-switcher');
+            const lightThemeStyle = document.getElementById('theme-style-light');
+            const darkThemeStyle = document.getElementById('theme-style-dark');
+            const themeIcon = themeSwitcher.querySelector('i');
+
+            const applyTheme = (theme) => {
+                if (theme === 'light') {
+                    lightThemeStyle.disabled = false;
+                    darkThemeStyle.disabled = true;
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                    themeSwitcher.classList.add('active');
+                } else {
+                    lightThemeStyle.disabled = true;
+                    darkThemeStyle.disabled = false;
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                    themeSwitcher.classList.remove('active');
+                }
+                localStorage.setItem('theme', theme);
+            };
+
+            themeSwitcher.addEventListener('click', () => {
+                const currentTheme = localStorage.getItem('theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+            });
+
+            // Apply saved theme or default to dark
+            applyTheme(localStorage.getItem('theme') || 'dark');
+
+            // Language Switching
+            const languageSwitcher = document.getElementById('language-switcher');
+            const languageTextSpan = document.getElementById('language-text');
+            const htmlElement = document.documentElement;
+            const translatableElements = document.querySelectorAll('[data-lang-key]');
+
+            const translations = {
+                uk: {
+                    // Navigation
+                    nav_home: "Головна",
+                    nav_schedule: "Розклад",
+                    nav_about: "Про нас",
+                    nav_games: "Ігри",
+                    nav_contact: "Контакти",
+
+                    // Hero Section
+                    home_h1: "Ласкаво просимо на наш Discord Сервер!",
+                    home_p: "Місце, де зустрічаються спілкування, веселощі та захопливі ігри.",
+                    join_button: "Приєднатися до Discord",
+
+                    // Schedule Section
+                    schedule_h2: "Розклад Бесід та Ігор",
+                    day_monday: "Понеділок",
+                    day_tuesday: "Вівторок",
+                    day_wednesday: "Середа",
+                    day_thursday: "Четвер",
+                    day_friday: "П'ятниця",
+                    day_saturday: "Субота",
+                    day_sunday: "Неділя",
+                    channel_link_text: "Перейти",
+                    mon_chat: "Загальний Чат",
+                    mon_game: "Вечір ігор: Valorant",
+                    tue_qa: "Сесія Q&A з Модераторами",
+                    tue_lol: "Командні ігри: League of Legends",
+                    wed_music: "Музичний Вечір",
+                    wed_chill: "Розслаблений Чат",
+                    thu_admin: "Сесія \"Поговори з Адміном\"",
+                    thu_stream: "Стрім-вечірка: Перегляд",
+                    fri_movie: "Кіновечір",
+                    fri_night_games: "Нічні Ігри",
+                    sat_day_chat: "Денний Чат",
+                    sat_tournament: "Турнір з... (гра)",
+                    sun_calm_chat: "Спокійне Спілкування",
+                    sun_week_discussion: "Обговорення Тижня",
+
+                    // About Section
+                    about_h2: "Про наш Сервер",
+                    about_p: "Наш Discord сервер — це динамічна спільнота, створена для тих, хто шукає однодумців для спілкування, спільних ігор та просто гарного проведення часу. Ми пишаємося дружелюбною атмосферою, де кожен знайде своє місце.",
+                    about_h3: "Що ми пропонуємо:",
+                    about_offer_1: "<b>Активне спілкування:</b> Безліч текстових та голосових каналів для будь-яких тем.",
+                    about_offer_2: "<b>Ігрові сесії:</b> Регулярні спільні ігри в різні популярні тайтли.",
+                    about_offer_3: "<b>Розважальні події:</b> Кіновечори, музичні сесії, вікторини та багато іншого.",
+                    about_offer_4: "<b>Підтримка та взаємодопомога:</b> Чуйна адміністрація та модератори завжди готові допомогти.",
+                    about_offer_5: "<b>Свобода самовираження:</b> Поважаємо думки кожного учасника.",
+                    about_rule_1: "Будьте ввічливими та поважними до інших учасників.",
+                    about_rule_2: "Заборонені образи, цькування, розпалювання ненависті.",
+                    about_rule_3: "Не надсилайте спам та рекламу без дозволу адміністрації.",
+                    about_rule_4: "Дотримуйтесь вказівок модераторів.",
+                    about_rule_5: "Насолоджуйтесь спілкуванням та іграми!",
+
+                    // Games Section
+                    games_h2: "Наші Ігрові Спільноти",
+                    games_p: "Ми любимо грати! Приєднуйтесь до наших каналів за улюбленими іграми:",
+                    game_valorant_title: "CS2",
+                    game_valorant_desc: "Тактичний шутер 5 на 5.",
+                    game_lol_title: "DOTA 2",
+                    game_lol_desc: "Популярна MOBA гра.",
+                    game_minecraft_title: "Minecraft",
+                    game_minecraft_desc: "Будуйте та досліджуйте світи.",
+                    game_amongus_title: "World of Tanks",
+                    game_amongus_desc: "Збирай, воюй, перемагай.",
+
+                    // Contact Section
+                    contact_h2: "Зв'яжіться з нами",
+                    contact_p1: "Якщо у вас є питання або пропозиції, ви можете зв'язатися з адміністрацією нашого Discord сервера безпосередньо.",
+                    contact_discord: "Наш Discord:",
+                    contact_email: "Або напишіть нам:",
+
+                    // Footer
+                    footer_text: "2025 Наш Discord Сервер. Усі права захищені."
+                },
+                en: {
+                    // Navigation
+                    nav_home: "Home",
+                    nav_schedule: "Schedule",
+                    nav_about: "About Us",
+                    nav_games: "Games",
+                    nav_contact: "Contact",
+
+                    // Hero Section
+                    home_h1: "Welcome to Our Discord Server!",
+                    home_p: "A place where communication, fun, and exciting games meet.",
+                    join_button: "Join Discord",
+
+                    // Schedule Section
+                    schedule_h2: "Schedule of Chats and Games",
+                    day_monday: "Monday",
+                    day_tuesday: "Tuesday",
+                    day_wednesday: "Wednesday",
+                    day_thursday: "Thursday",
+                    day_friday: "Friday",
+                    day_saturday: "Saturday",
+                    day_sunday: "Sunday",
+                    channel_link_text: "Go",
+                    mon_chat: "General Chat",
+                    mon_game: "Gaming Night: Valorant",
+                    tue_qa: "Moderator Q&A Session",
+                    tue_lol: "Team Games: League of Legends",
+                    wed_music: "Music Evening",
+                    wed_chill: "Relaxed Chat",
+                    thu_admin: "Chat with Admin Session",
+                    thu_stream: "Stream Party: Watching",
+                    fri_movie: "Movie Night",
+                    fri_night_games: "Late Night Gaming",
+                    sat_day_chat: "Day Chat",
+                    sat_tournament: "Tournament for... (game)",
+                    sun_calm_chat: "Quiet Chat",
+                    sun_week_discussion: "Weekly Discussion",
+
+                    // About Section
+                    about_h2: "About Our Server",
+                    about_p: "Our Discord server is a dynamic community created for those looking for like-minded people to chat, play games together, and simply have a good time. We pride ourselves on a friendly atmosphere where everyone can find their place.",
+                    about_h3: "What we offer:",
+                    about_offer_1: "<b>Active communication:</b> Many text and voice channels for any topic.",
+                    about_offer_2: "<b>Gaming sessions:</b> Regular joint games in various popular titles.",
+                    about_offer_3: "<b>Entertainment events:</b> Movie nights, music sessions, quizzes, and much more.",
+                    about_offer_4: "<b>Support and mutual aid:</b> Responsive administration and moderators are always ready to help.",
+                    about_offer_5: "<b>Freedom of expression:</b> We respect the opinions of every participant.",
+                    about_rule_1: "Be polite and respectful to other participants.",
+                    about_rule_2: "No insults, bullying, or incitement to hatred.",
+                    about_rule_3: "Do not send spam or advertising without admin permission.",
+                    about_rule_4: "Follow moderator instructions.",
+                    about_rule_5: "Enjoy chatting and gaming!",
+
+                    // Games Section
+                    games_h2: "Our Gaming Communities",
+                    games_p: "We love to play! Join our channels for your favorite games:",
+                    game_valorant_title: "CS2",
+                    game_valorant_desc: "5v5 tactical shooter.",
+                    game_lol_title: "DOTA 2",
+                    game_lol_desc: "Popular MOBA game.",
+                    game_minecraft_title: "Minecraft",
+                    game_minecraft_desc: "Build and explore worlds.",
+                    game_amongus_title: "World of Tanks",
+                    game_amongus_desc: "Gather, battle, win.",
+
+                    // Contact Section
+                    contact_h2: "Contact Us",
+                    contact_p1: "If you have any questions or suggestions, you can contact our Discord server administration directly.",
+                    contact_discord: "Our Discord:",
+                    contact_email: "Or email us:",
+
+                    // Footer
+                    footer_text: "2025 Our Discord Server. All rights reserved."
+                }
+            };
+
+            let currentLanguage = localStorage.getItem('language') || 'uk';
+
+            const updateLanguageButton = (lang) => {
+                if (lang === 'uk') {
+                    languageTextSpan.textContent = 'UK';
+                    languageSwitcher.setAttribute('aria-label', 'Змінити мову на Англійську');
+                } else {
+                    languageTextSpan.textContent = 'EN';
+                    languageSwitcher.setAttribute('aria-label', 'Змінити мову на Українську');
+                }
+            };
+
+            const updateContent = (lang) => {
+                htmlElement.lang = lang;
+
+                translatableElements.forEach(element => {
+                    const key = element.dataset.langKey;
+                    if (translations[lang][key]) {
+                        if (key.startsWith('about_offer_') || key === 'channel_link_text') {
+                            element.innerHTML = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+
+                const discordLinkElement = document.querySelector('#contact p:nth-of-type(2) a');
+                const emailLinkElement = document.querySelector('#contact p:nth-of-type(3) a');
+
+                if (discordLinkElement) {
+                    document.querySelector('#contact p:nth-of-type(2)').innerHTML = `${translations[lang].contact_discord} <a href="${discordLinkElement.href}" target="_blank">${discordLinkElement.textContent}</a>`;
+                }
+                if (emailLinkElement) {
+                    document.querySelector('#contact p:nth-of-type(3)').innerHTML = `${translations[lang].contact_email} <a href="${emailLinkElement.href}">${emailLinkElement.textContent}</a>`;
+                }
+            };
+
+            languageSwitcher.addEventListener('click', () => {
+                currentLanguage = currentLanguage === 'uk' ? 'en' : 'uk';
+                updateContent(currentLanguage);
+                updateLanguageButton(currentLanguage);
+                localStorage.setItem('language', currentLanguage);
+            });
+
+            // Apply language on initial load
+            updateContent(currentLanguage);
+            updateLanguageButton(currentLanguage);
+
+            // Section Scroll Animations
+            const sections = document.querySelectorAll('section');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // Trigger initial animations for sections already in view on load
+            document.querySelectorAll('section').forEach(section => {
+                if (section.getBoundingClientRect().top < window.innerHeight) {
+                    section.classList.add('is-visible');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
