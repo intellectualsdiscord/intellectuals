@@ -171,7 +171,7 @@
 
         /* Language Switcher */
         #language-switcher {
-            min-width: 8px;
+            min-width: 80px;
             font-size: 1rem;
             font-weight: 600;
         }
@@ -500,10 +500,10 @@
             
             nav ul {
                 position: fixed;
-                top: 0px;
+                top: 80px;
                 left: -100%;
                 width: 100%;
-                height: calc(100vh - 0px);
+                height: calc(100vh - 80px);
                 background-color: var(--nav-background);
                 flex-direction: column;
                 align-items: center;
@@ -617,6 +617,7 @@
                 padding: 30px 15px;
             }
         }
+
     </style>
 
     <style id="theme-style-dark">
@@ -766,6 +767,7 @@
                     </ul>
                     <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="day-card empty-card"></div>
                 <div class="day-card">
                     <h3 data-lang-key="day_sunday">Неділя</h3>
                     <ul>
@@ -774,6 +776,7 @@
                     </ul>
                     <a href="https://discord.gg/exwWqr2Gzb" target="_blank" class="channel-link"><span data-lang-key="channel_link_text">Перейти</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="day-card empty-card"></div>
             </div>
         </section>
 
@@ -817,11 +820,13 @@
                     <h3 data-lang-key="game_minecraft_title">Minecraft</h3>
                     <p data-lang-key="game_minecraft_desc">Будуйте та досліджуйте світи.</p>
                 </div>
+                <div class="game-card empty-card"></div>
                 <div class="game-card">
                     <img src="wow.png" alt="WoW">
                     <h3 data-lang-key="game_amongus_title">World of Tanks</h3>
                     <p data-lang-key="game_amongus_desc">Збирай, воюй, перемагай.</p>
                 </div>
+                <div class="game-card empty-card"></div>
             </div>
         </section>
 
@@ -835,7 +840,7 @@
     </main>
 
     <footer>
-        <p data-lang-key="footer_text">2025 INTELLECTUALS. Усі права захищені.</p>
+        <p data-lang-key="footer_text">2025 Наш Discord Сервер. Усі права захищені.</p>
     </footer>
 
     <script>
@@ -970,7 +975,7 @@
                     contact_email: "Або напишіть нам:",
 
                     // Footer
-                    footer_text: "2025 INTELLECTUALS. Усі права захищені."
+                    footer_text: "2025 Наш Discord Сервер. Усі права захищені."
                 },
                 en: {
                     // Navigation
@@ -1044,7 +1049,7 @@
                     contact_email: "Or email us:",
 
                     // Footer
-                    footer_text: "2025 INTELLECTUALS. All rights reserved."
+                    footer_text: "2025 Our Discord Server. All rights reserved."
                 }
             };
 
